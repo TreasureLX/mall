@@ -9,10 +9,13 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>mall-user-api</module>
-        <module>mall-user-service</module>
         <module>mall-user-sso</module>
+        <module>mall-user-provider</module>
     </modules>
     <modelVersion>4.0.0</modelVersion>
 
+    <dependencies>
+        
+    </dependencies>
 
 </project>

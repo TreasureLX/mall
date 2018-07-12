@@ -6,7 +6,17 @@
 
     <groupId>com.jxufe.mall</groupId>
     <artifactId>mall</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>mall-user</module>
+        <module>mall-common</module>
+        <module>mall-pay</module>
+        <module>mall-activity</module>
+        <module>mall-parent</module>
+        <module>mall-cashier</module>
+        <module>mall-admin</module>
+    </modules>
 
 
 </project>

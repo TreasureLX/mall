@@ -11,7 +11,6 @@ import com.google.code.kaptcha.Producer;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-
 import javax.annotation.Resource;
 import javax.imageio.ImageIO;
 import javax.servlet.ServletOutputStream;
@@ -23,7 +22,7 @@ import java.io.IOException;
 
 @Controller
 @RequestMapping("captcha")
-public class CaptchaController {
+public class CaptchaController extends BaseController {
     @Resource
     private Producer captchaProducer;
     /**
@@ -36,6 +35,7 @@ public class CaptchaController {
      * @throws         IOException
      */
     @RequestMapping("getCaptchaCode")
+    @com.jxufe.mall.common.annotation.Anoymous
     public ModelAndView getCaptchaCode(HttpServletRequest request, HttpServletResponse response) throws IOException{
         HttpSession session = request.getSession();
 

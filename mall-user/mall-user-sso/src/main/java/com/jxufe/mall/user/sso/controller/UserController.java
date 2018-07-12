@@ -1,6 +1,7 @@
 package com.jxufe.mall.user.sso.controller;
 
 
+import com.jxufe.mall.common.annotation.Anoymous;
 import com.jxufe.mall.common.constants.GpmallWebConstant;
 import com.jxufe.mall.user.api.IUserCoreService;
 import com.jxufe.mall.user.api.dto.UserLoginRequest;
@@ -11,7 +12,6 @@ import com.jxufe.mall.user.sso.controller.support.ResponseData;
 import com.jxufe.mall.user.sso.controller.support.ResponseEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -46,10 +46,10 @@ public class UserController extends BaseController{
     }
 
 
-    @GetMapping("/register")
+    @PostMapping("/register")
     @Anoymous
-    public @ResponseBody
-    ResponseData register(String username, String password, String mobile){
+    @ResponseBody
+    public ResponseData register(String username, String password, String mobile){
         ResponseData data=new ResponseData();
 
         UserRegisterRequest request=new UserRegisterRequest();
@@ -59,7 +59,7 @@ public class UserController extends BaseController{
         try {
             UserRegisterResponse response = userCoreService.register(request);
             //异步化解耦
-            kafkaTemplate.send("test",response.getUid());
+            kafkaTemplate.send("test",response.getUid().toString());
             data.setMessage(response.getMsg());
             data.setCode(response.getCode());
         }catch(Exception e) {

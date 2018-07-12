@@ -24,4 +24,11 @@ public class UserRegisterResponse extends AbstractResponse implements Serializab
     public void setUid(Integer uid) {
         this.uid = uid;
     }
+
+    @Override
+    public String toString() {
+        return "UserRegisterResponse{" +
+                "uid=" + uid +
+                '}';
+    }
 }

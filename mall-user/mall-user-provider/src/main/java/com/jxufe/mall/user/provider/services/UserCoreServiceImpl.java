@@ -122,6 +122,7 @@ public class UserCoreServiceImpl implements IUserCoreService {
 
             int effectRow=userMapper.insertSelective(user);
             if(effectRow>0){
+                response.setUid(user.getId());
                 response.setCode(ResponseCodeEnum.SUCCESS.getCode());
                 response.setMsg(ResponseCodeEnum.SUCCESS.getMsg());
                 return  response;
@@ -132,11 +133,12 @@ public class UserCoreServiceImpl implements IUserCoreService {
         }catch (DuplicateKeyException e){
             //TODO 用户名重复
         }catch(Exception e){
+            e.printStackTrace();
             ServiceException serviceException=(ServiceException) ExceptionUtil.handlerException4biz(e);
             response.setCode(serviceException.getErrorCode());
             response.setMsg(serviceException.getErrorMessage());
         }finally {
-            Log.info("register response:【"+response+"】");
+            Log.info("register response:【"+response.toString()+"】");
         }
 
         return response;

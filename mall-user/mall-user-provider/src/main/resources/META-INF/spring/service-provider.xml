@@ -10,7 +10,7 @@
 					group="${dubbo.zk.group}"
 					file="${dubbo.cache.dir}/user-service.cache"/>
 
-	<dubbo:protocol name="dubbo"
+	<dubbo:protocol host="127.0.0.1" name="dubbo"
 					port="${dubbo.service.provider.port}"
 					accesslog="${dubbo.protocol.accesslog}"/>
 

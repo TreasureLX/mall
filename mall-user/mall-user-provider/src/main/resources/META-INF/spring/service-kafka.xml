@@ -8,7 +8,7 @@
         <constructor-arg>
             <map>
                 <entry key="bootstrap.servers"
-                       value="192.168.11.153:9092,192.168.11.154:9092,192.168.11.157:9092"/>
+                       value="192.168.134.59:9092,192.168.134.60:9092,192.168.134.61:9092"/>
                 <entry key="group.id" value="registryConsumer"/>
                 <entry key="enable.auto.commit" value="true"/>
                 <entry key="auto.commit.interval.ms" value="1000"/>

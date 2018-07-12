@@ -34,7 +34,7 @@
 		<property name="dataSource" ref="userDataSource" />
 		<property name="typeAliasesPackage"
 				  value="com.jxufe.mall.user.provider.dal.entity" />
-		<property name="mapperLocations" value="classpath*:com/jxufe/mall/user/provider/dal/persistence/*Mapper.xml" />
+		<property name="mapperLocations" value="classpath*:mappers/*Mapper.xml" />
 	</bean>
 
 	<bean name="userMapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
